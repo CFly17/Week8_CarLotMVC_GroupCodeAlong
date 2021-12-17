@@ -1,0 +1,23 @@
+﻿@model IEnumerable<Car>
+
+<h2>Cars in stock</h2>
+@foreach (Car c in Model)
+{
+    <h4>@c.Make @c.Model</h4>
+    <p>Year: @c.Year</p>
+    <p>New: </p>
+
+    @if (@c.IsNew == true)
+    {
+        <p>Yes</p>
+    }
+    else
+    {
+        <p>No</p>
+    }
+    <a asp-controller="Car" asp-action="UpdateCar" asp-route-id="@c.Id">Update details</a>
+    <br />
+    <a asp-controller="Car" asp-action="DeleteCar" asp-route-id="@c.Id">Delete</a>
+    <br />
+}
+
