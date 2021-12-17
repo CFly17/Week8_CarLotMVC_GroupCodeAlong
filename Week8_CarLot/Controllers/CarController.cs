@@ -11,6 +11,7 @@ namespace Week8_CarLot.Controllers
     {
 
         CarDAL cdal = new CarDAL();
+        CarownerDAL coDAL = new CarownerDAL();
         public IActionResult Index()
         {
             List<Car> cars = cdal.GetCars();
@@ -19,6 +20,7 @@ namespace Week8_CarLot.Controllers
 
         public IActionResult CreateCar()
         {
+            ViewData["Carowners"] = coDAL.GetCarowners();
             return View();
         }
 

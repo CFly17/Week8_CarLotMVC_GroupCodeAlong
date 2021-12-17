@@ -37,7 +37,8 @@ namespace Week8_CarLot.Models
         {
             using (var connect = new MySqlConnection(Secret.Connection))
             {
-                string sql = $"insert into cars values (0, '{c.Make}', '{c.Model}', {c.Year}, {c.IsNew});";
+                string sql = $"insert into cars " +
+                    $"values (0, '{c.Make}', '{c.Model}', {c.Year}, {c.IsNew}, {c.BelongsTo});";
                 connect.Open();
                 connect.Query<Car>(sql);
                 connect.Close();
@@ -48,7 +49,8 @@ namespace Week8_CarLot.Models
         {
             using (var connect = new MySqlConnection(Secret.Connection))
             {
-                string sql = $"update cars set make = '{c.Make}', model = '{c.Model}', `year` = {c.Year}, isNew = {c.IsNew} where id=" +c.Id;
+                string sql = $"update cars set make = '{c.Make}', model = '{c.Model}', `year` = {c.Year}, " +
+                    $"isNew = {c.IsNew},  belongsto = {c.BelongsTo} where id=" +c.Id;
                 connect.Open();
                 connect.Query<Car>(sql);
                 connect.Close();

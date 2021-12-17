@@ -14,6 +14,7 @@ namespace Week8_CarLot.Models
         public string Model { get; set; }
         public int Year { get; set; }
         public bool IsNew { get; set; }
+        public int BelongsTo { get; set; }
 
     }
 }

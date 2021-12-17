@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "CreateCar";
+    List<Carowner> carowners = ViewData["Carowners"] as List<Carowner>;
 }
 
 <h2>Register a Car</h2>
@@ -30,6 +31,15 @@
                     <input class="form-check-input" asp-for="IsNew" /> @Html.DisplayNameFor(model => model.IsNew)
                 </label>
             </div>
+
+            <select name="BelongsTo">
+                <option>-No owner-</option>
+                @foreach (Carowner c in carowners)
+                {
+                    <option value="@c.Id">@c.FirstName</option>
+                }
+            </select>
+
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
