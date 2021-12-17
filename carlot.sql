@@ -13,4 +13,15 @@
 -- (0, 'Fiat', '500X', 2018, false),
 -- (0, 'Ford', 'F150', 2022, true);
 
+-- create table carowners(
+-- id int primary key not null auto_increment,
+-- firstname nvarchar(30),
+-- lastname nvarchar(30)
+-- );
+
+-- ALTER TABLE cars
+-- ADD belongsto int;
+-- ALTER TABLE cars
+-- add FOREIGN KEY (belongsto) REFERENCES carowners(Id);
+
 select * from cars;
